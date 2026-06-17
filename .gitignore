@@ -1,0 +1,20 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Raw data (heavy: downloaded zips & extracted snapshots) — NOT committed.
+data/raw/
+
+# Keep processed artifacts & models in git (they are compact and needed by the app):
+!data/processed/
+!models/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local Claude Code agent settings
+.claude/
