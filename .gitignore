@@ -16,5 +16,3 @@ data/raw/
 Thumbs.db
 .vscode/
 
-# Local Claude Code agent settings
-.claude/
