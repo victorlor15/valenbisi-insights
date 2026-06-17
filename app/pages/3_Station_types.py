@@ -59,6 +59,9 @@ clusters["color"] = clusters["cluster"].apply(lambda c: palette[c % len(palette)
 left, right = st.columns([3, 2])
 
 # ----------------------------------------------------------------- map of clusters
+# NOTE: pydeck snapshots the dataframe when the Layer is built, so every column the
+# tooltip references must exist *before* pdk.Layer(...) is created.
+clusters["tooltip"] = clusters["name"] + " - type " + clusters["cluster"].astype(str)
 with left:
     layer = pdk.Layer(
         "ScatterplotLayer", data=clusters, get_position="[lon, lat]",
@@ -66,7 +69,6 @@ with left:
         radius_max_pixels=16, pickable=True)
     view = pdk.ViewState(latitude=float(clusters["lat"].mean()),
                          longitude=float(clusters["lon"].mean()), zoom=12.2)
-    clusters["tooltip"] = clusters["name"] + " - type " + clusters["cluster"].astype(str)
     st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view, map_style=None,
                              tooltip={"text": "{tooltip}"}))
 

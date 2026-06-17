@@ -66,7 +66,9 @@ Originality/innovation · Difficulty · Quality of the application · Use of DS 
 - [x] Forecast model (HistGradientBoosting; MAE 2.93 vs 4.47 baseline, R2 0.66)
 - [x] Streamlit app (4 modules) - Home + Live/Patterns/Types/Forecast
 - [x] Local test (smoke_test.py: all pages OK; server health 200)
-- [ ] GitHub repo + Streamlit Cloud deploy  <-- NEXT (needs user's GitHub)
+- [x] GitHub repo (private): github.com/victorlor15/valenbisi-insights (branch main)
+- [ ] Streamlit Cloud deploy  <-- user does browser OAuth at share.streamlit.io,
+      main file path = app/Home.py, Python 3.11
 
 ## Key gotchas (resolved)
 - HistGradientBoosting caps categorical cardinality at 255; 276 stations -> dropped
